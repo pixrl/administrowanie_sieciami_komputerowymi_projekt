@@ -1,2 +1,2 @@
-# administrowanie_sieciami_komputerowymi_projekt
+# Administrowanie sieciami komputerowymi projekt
 Projekt na laboratoria
