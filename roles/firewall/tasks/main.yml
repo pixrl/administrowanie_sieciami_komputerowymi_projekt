@@ -1,0 +1,2 @@
+- name: Copy iptables rules
+  copy: src=iptables.rules dest=/etc/iptables/iptables.rules mode=0700

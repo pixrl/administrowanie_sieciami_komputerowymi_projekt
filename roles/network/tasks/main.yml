@@ -1,0 +1,5 @@
+- name: Copy interfaces file
+  copy: src=interfaces dest=/etc/network/interfaces mode=0700
+
+- name: Copy dhcpd file
+  copy: src=dhcpd dest=/etc/conf.d/dhcpd mode=0700

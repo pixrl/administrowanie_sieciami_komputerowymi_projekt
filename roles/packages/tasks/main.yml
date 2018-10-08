@@ -1,0 +1,23 @@
+
+- name: Update package cache
+  apk:
+      update_cache: yes
+- name: Upgrade all packages
+  apk:
+      available: yes
+      upgrade: yes
+
+- name: Install iptables
+  apk:
+      name: iptables
+      state: present
+
+- name: Install ip6tables
+  apk:
+      name: ip6tables
+      state: present
+
+- name: Install DHCP
+  apk:
+      name: dhcp
+      state: present

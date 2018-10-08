@@ -1,0 +1,9 @@
+---
+- hosts: hades
+  remote_user: root
+
+  roles:
+      - hostname
+      - packages
+      - network
+      - firewall

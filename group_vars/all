@@ -1,0 +1,5 @@
+---
+# Hostname
+my_hostname: hades
+my_timezone: Europe/Warsaw
+my_locale: pl_PL.UTF-8
