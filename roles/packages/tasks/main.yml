@@ -21,3 +21,24 @@
   apk:
       name: dhcp
       state: present
+
+- name: Install Unbound DNS resolver
+  apk:
+      name: unbound
+      state: present
+
+- name: Install DNSCrypt
+  apk:
+      name: dnscrypt-proxy@edgecommunity
+      state: present
+
+- name: Install Haveged
+  apk:
+      name: haveged
+      state: present
+
+- name: Enable haveged service
+  service:
+      name: haveged
+      state: started
+      enabled: yes

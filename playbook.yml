@@ -4,6 +4,9 @@
 
   roles:
       - hostname
+      - timezone
       - packages
+      - sysctl
       - network
+      - chrony
       - firewall

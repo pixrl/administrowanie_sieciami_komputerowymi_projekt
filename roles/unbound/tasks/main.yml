@@ -1,0 +1,8 @@
+- name: Copy unbound config
+  copy: src=unbound.conf dest=/etc/unbound/unbound.conf mode=0700
+
+- name: Enable unbound service
+  service:
+      name: unbound
+      state: started
+      enabled: yes

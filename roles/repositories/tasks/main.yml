@@ -1,0 +1,2 @@
+- name: Copy repositories file
+  copy: src=repositories dest=/etc/apk/repositories mode=0700

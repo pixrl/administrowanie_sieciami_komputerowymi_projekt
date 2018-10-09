@@ -1,2 +1,8 @@
 - name: Copy iptables rules
   copy: src=iptables.rules dest=/etc/iptables/iptables.rules mode=0700
+
+- name: Enable iptables service
+  service:
+      name: iptables
+      state: started
+      enabled: yes

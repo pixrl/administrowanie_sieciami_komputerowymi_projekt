@@ -1,0 +1,2 @@
+- name: Copy chrony config file
+  copy: src=chrony.conf dest=/etc/chrony.conf mode=0700

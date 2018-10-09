@@ -1,0 +1,8 @@
+- name: Copy dnscrypt-proxy config
+  copy: src=dnscrypt-proxy dest=/etc/conf.d/dnscrypt-proxy mode=0700
+
+- name: Enable dnscrypt-proxy service
+  service:
+      name: dnscrypt-proxy
+      state: started
+      enabled: yes
