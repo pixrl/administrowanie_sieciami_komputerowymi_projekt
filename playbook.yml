@@ -5,8 +5,11 @@
   roles:
       - hostname
       - timezone
+      - repositories
       - packages
       - sysctl
       - network
       - chrony
       - firewall
+      - unbound
+      - dnscrypt
