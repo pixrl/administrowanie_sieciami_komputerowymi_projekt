@@ -4,6 +4,9 @@
 - name: Copy dhcpd file
   copy: src=dhcpd dest=/etc/conf.d/dhcpd mode=0700
 
+- name: Copy dhcpd.conf file
+  copy: src=dhcpd.conf dest=/etc/dhcp/dhcpd.conf mode=0700
+
 - name: Enable dhcpd service
   service:
       name: dhcpd
