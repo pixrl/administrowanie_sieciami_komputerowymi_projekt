@@ -10,6 +10,5 @@
       - sysctl
       - network
       - chrony
-      #- firewall
+      - firewall
       - unbound
-      - dnscrypt

@@ -4,5 +4,5 @@
 - name: Enable unbound service
   service:
       name: unbound
-      state: started
+      state: restarted
       enabled: yes

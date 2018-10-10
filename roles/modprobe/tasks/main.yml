@@ -1,0 +1,7 @@
+- name: Add the ipv6 module
+  modprobe:
+      name: ipv6
+      state: present
+
+- name: Copy /etc/modules
+  copy: src=modules dest=/etc/modules mode=0700

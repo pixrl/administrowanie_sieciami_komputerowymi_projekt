@@ -4,11 +4,6 @@ iface lo inet loopback
   address 127.0.0.1
   netmask 255.0.0.0
 
-auto lo:1
-iface lo:1 inet static
-  address 127.0.0.2
-  netmask 255.0.0.0
-
 # External Interface - facing Internet
 auto eth0
 iface eth0 inet dhcp
