@@ -5,6 +5,7 @@
   roles:
       - hostname
       - resolv
+      - modules
       - repositories
       - packages
       - sysctl
