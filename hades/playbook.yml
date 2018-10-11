@@ -5,11 +5,11 @@
   roles:
       - hostname
       - resolv
+      - chrony
       - modprobe
       - repositories
       - packages
       - sysctl
       - network
-      - chrony
       - firewall
       - unbound

@@ -7,6 +7,14 @@
 - name: Copy dhcpd.conf file
   copy: src=dhcpd.conf dest=/etc/dhcp/dhcpd.conf mode=0700
 
+- name: Reboot the machine
+  shell: sleep 2s && reboot
+
+- name: Wait for machine to come back
+  wait_for_connection:
+    timeout: 240
+    delay: 20
+
 - name: Enable dhcpd service
   service:
       name: dhcpd

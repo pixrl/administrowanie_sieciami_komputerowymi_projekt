@@ -45,6 +45,9 @@
       out_interface: eth0
       jump: MASQUERADE
 
+- name: Run iptables save
+  shell: /etc/init.d/iptables save
+
 - name: Restart iptables service
   service:
       name: iptables

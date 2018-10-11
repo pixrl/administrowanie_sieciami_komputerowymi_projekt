@@ -27,11 +27,6 @@
       name: unbound
       state: present
 
-- name: Install DNSCrypt
-  apk:
-      name: dnscrypt-proxy@edgecommunity
-      state: present
-
 - name: Install Haveged
   apk:
       name: haveged
