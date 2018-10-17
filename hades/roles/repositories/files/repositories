@@ -1,4 +1,4 @@
 #/media/cdrom/apks
-https://uk.alpinelinux.org/alpine/v3.8/main
-https://uk.alpinelinux.org/alpine/v3.8/community
-@edgecommunity https://uk.alpinelinux.org/alpine/edge/community
+http://nl.alpinelinux.org/alpine/v3.8/main
+http://nl.alpinelinux.org/alpine/v3.8/community
+@edgecommunity http://nl.alpinelinux.org/alpine/edge/community
