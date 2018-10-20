@@ -16,6 +16,13 @@ iface eth1 inet static
         netmask 255.255.255.0
         broadcast 192.168.1.255
 
+# Internal Interface - facing LAN
+auto eth2
+iface eth2 inet static
+        address 192.168.2.1
+        netmask 255.255.255.0
+        broadcast 192.168.2.255
+
 # Interface for host
 auto eth3
 iface eth3 inet dhcp
