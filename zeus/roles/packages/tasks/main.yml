@@ -1,0 +1,10 @@
+
+- name: Update package cache and upgrade packages
+  yum:
+      update_cache: yes
+      update_only: yes
+
+- name: Install bind dns server
+  apk:
+      name: bind
+      state: present

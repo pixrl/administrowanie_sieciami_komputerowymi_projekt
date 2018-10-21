@@ -1,0 +1,10 @@
+---
+- hosts: zeus
+  remote_user: root
+
+  roles:
+      - hostname
+      - packages
+      - named
+      - firewalld
+      - systemd
