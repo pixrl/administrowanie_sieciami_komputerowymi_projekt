@@ -5,6 +5,6 @@
       update_only: yes
 
 - name: Install bind dns server
-  apk:
+  yum:
       name: bind
       state: present

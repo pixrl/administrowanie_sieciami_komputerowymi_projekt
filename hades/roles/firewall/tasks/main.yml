@@ -45,6 +45,62 @@
       out_interface: eth0
       jump: MASQUERADE
 
+- name: Allows hosts of the network to use WAN connection
+  iptables:
+      table: nat
+      chain: POSTROUTING
+      source: 192.168.2.0/24
+      out_interface: eth0
+      jump: MASQUERADE
+
+- name: Allow DNS traffic rule \#1
+  iptables:
+      chain: INPUT
+      protocol: udp
+      source: 0/0
+      source_port: 1024:65535
+      destination: 192.168.1.22
+      destination_port: 53
+      match: state
+      ctstate: NEW,ESTABLISHED
+      jump: ACCEPT
+
+- name: Allow DNS traffic \#2
+  iptables:
+      chain: OUTPUT
+      protocol: udp
+      source: 192.168.1.22
+      source_port: 53
+      destination: 0/0
+      destination_port: 1024:65535
+      match: state
+      ctstate: ESTABLISHED
+      jump: ACCEPT
+
+- name: Allow DNS traffic rule \#3
+  iptables:
+      chain: INPUT
+      protocol: udp
+      source: 0/0
+      source_port: 53
+      destination: 192.168.1.22
+      destination_port: 53
+      match: state
+      ctstate: NEW,ESTABLISHED
+      jump: ACCEPT
+
+- name: Allow DNS traffic \#4
+  iptables:
+      chain: OUTPUT
+      protocol: udp
+      source: 192.168.1.22
+      source_port: 53
+      destination: 0/0
+      destination_port: 53
+      match: state
+      ctstate: ESTABLISHED
+      jump: ACCEPT
+
 - name: Run iptables save
   shell: /etc/init.d/iptables save
 
