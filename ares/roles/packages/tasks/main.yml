@@ -1,0 +1,9 @@
+- name: Update package cache and upgrade packages
+  apt:
+      update_cache: yes
+      update_only: yes
+
+- name: Install hostapd dns server
+  apt:
+      name: hostapd
+      state: present

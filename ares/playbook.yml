@@ -1,0 +1,8 @@
+---
+- hosts: ares
+  remote_user: root
+
+  roles:
+      - hostname
+      - packages
+      - hostapd
