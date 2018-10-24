@@ -1,0 +1,20 @@
+- name: Copy hostapd.service file
+  copy: src=hostapd.service dest=/lib/systemd/system/hostapd.service mode=0700
+
+- name: Copy dhcpd.service file
+  copy: src=dhcpd4@.service dest=/etc/systemd/system/dhcpd4@.service mode=0700
+
+- name: Enable and start DHCP server on "{{ wireless_ifname }}"
+  systemd:
+      name: dhcpd4@{{wireless_ifname}}.service
+      masked: no
+      daemon_reload: yes
+      state: started
+
+- name: Enable and start hostapd service
+  systemd:
+      name: hostapd
+      masked: no
+      daemon_reload: yes
+      state: started
+      enabled: yes

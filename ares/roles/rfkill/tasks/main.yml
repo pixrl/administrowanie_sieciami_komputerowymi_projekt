@@ -1,0 +1,2 @@
+- name: Unblock wlan
+  shell: rfkill unblock wifi

@@ -1,0 +1,22 @@
+# ifupdown has been replaced by netplan(5) on this system.  See
+# /etc/netplan for current configuration.
+# To re-enable ifupdown on this system, you can run:
+#    sudo apt install ifupdown
+# Loopback interfaces
+auto lo
+iface lo inet loopback
+        address 127.0.0.1
+        netmask 255.0.0.0
+
+# External Interface - facing Internet
+auto eth0
+iface eth0 inet dhcp
+        hostname ares
+
+# Internal Interface - facing LAN
+auto wlan0
+iface wlan0 inet static
+        hostapd /etc/hostapd/hostapd.conf
+        address 10.1.1.1
+        netmask 255.255.255.0
+        broadcast 10.1.1.255

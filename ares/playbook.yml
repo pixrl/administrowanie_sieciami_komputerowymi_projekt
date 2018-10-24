@@ -5,4 +5,9 @@
   roles:
       - hostname
       - packages
+      - rfkill
       - hostapd
+      - sysctl
+      - network
+      - systemd
+      - firewall

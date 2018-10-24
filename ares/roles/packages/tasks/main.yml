@@ -1,9 +1,44 @@
 - name: Update package cache and upgrade packages
   apt:
       update_cache: yes
-      update_only: yes
+      upgrade: yes
 
-- name: Install hostapd dns server
+- name: Install aptitude
+  apt:
+      name: aptitude
+      state: present
+
+- name: Install dhcp
+  apt:
+      name: isc-dhcp-server
+      state: present
+
+- name: Install hostapd
   apt:
       name: hostapd
       state: present
+
+- name: Install rfkill
+  apt:
+      name: rfkill
+      state: present
+
+- name: Install bridge-utils
+  apt:
+      name: bridge-utils
+      state: present
+
+- name: Install iptables
+  apt:
+      name: iptables
+      state: present
+
+- name: Install ifupdown
+  apt:
+      name: ifupdown
+      state: present
+
+- name: Purge NetworkManager
+  apt:
+      name: network-manager
+      purge: yes

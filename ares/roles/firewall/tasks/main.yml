@@ -1,0 +1,44 @@
+- name: Enable NAT 1
+  iptables:
+      table: nat
+      chain: POSTROUTING
+      out_interface: "{{ ethernet_ifname }}"
+      jump: MASQUERADE
+
+- name: Enable NAT 2
+  iptables:
+      chain: FORWARD
+      match: conntrack
+      ctstate: RELATED,ESTABLISHED
+      jump: ACCEPT
+
+- name: Enable NAT 3
+  iptables:
+      chain: FORWARD
+      in_interface: "{{ wireless_ifname }}"
+      out_interface: "{{ ethernet_ifname }}"
+      jump: ACCEPT
+
+- name: Allow incoming connections to UDP port 67 for DHCP server
+  iptables:
+      chain: INPUT
+      protocol: udp
+      destination_port: 67
+      in_interface: "{{ wireless_ifname }}"
+      jump: ACCEPT
+
+- name: Allow incoming connections to udp port 53 for DNS request
+  iptables:
+      chain: INPUT
+      protocol: udp
+      destination_port: 53
+      source: 10.1.1.0/24
+      jump: ACCEPT
+
+- name: Allow incoming connections to tcp port 53 for DNS request
+  iptables:
+      chain: INPUT
+      protocol: tcp
+      destination_port: 53
+      source: 10.1.1.0/24
+      jump: ACCEPT

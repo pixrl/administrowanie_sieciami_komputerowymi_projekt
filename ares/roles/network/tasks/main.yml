@@ -1,0 +1,11 @@
+- name: Copy interfaces file
+  copy: src=interfaces dest=/etc/network/interfaces mode=0700
+
+- name: Copy isc-dhcp-server file
+  copy: src=isc-dhcp-server dest=/etc/default/isc-dhcp-server mode=0700
+
+- name: Copy dhcpd.conf file
+  copy: src=dhcpd.conf dest=/etc/dhcp/dhcpd.conf mode=0700
+
+- name: Make interface up
+  shell: ip link set "{{ wireless_ifname }}" up

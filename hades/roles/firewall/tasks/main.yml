@@ -53,24 +53,6 @@
       out_interface: eth0
       jump: MASQUERADE
 
-- name: Forward local DNS queries from eth2
-  iptables:
-      table: nat
-      chain: PREROUTING
-      in_interface: eth2
-      protocol: udp
-      destination_port: 53
-      to_destination: 192.168.1.22:53
-      jump: DNAT
-
-- name: Forward local DNS queries
-  iptables:
-      chain: FORWARD
-      protocol: udp
-      destination: 192.168.1.22
-      destination_port: 53
-      jump: ACCEPT
-
 - name: Run iptables save
   shell: /etc/init.d/iptables save
 

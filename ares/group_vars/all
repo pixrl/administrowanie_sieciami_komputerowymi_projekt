@@ -2,3 +2,10 @@
 # Hostname
 my_hostname: ares
 my_locale: pl_PL.UTF-8
+
+ethernet_ifname: eth0
+
+wireless_conn_name: wlan0-ap
+wireless_ifname: wlan0
+wireless_static_ip: 10.1.1.1
+wireless_dns_ip: 192.168.1.22

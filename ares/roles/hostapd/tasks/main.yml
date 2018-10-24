@@ -1,2 +1,5 @@
 - name: Copy hostapd config file
-  copy: src=hostapd.conf dest=/etc/hostapd/hostapd.conf mode=0700
+  copy: src=hostapd.conf dest=/etc/hostapd/hostapd.conf mode=0755
+
+- name: Copy hostapd file
+  copy: src=hostapd dest=/etc/default/hostapd mode=0700

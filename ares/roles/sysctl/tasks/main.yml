@@ -1,0 +1,20 @@
+- name: Enable ipv4 forwarding
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: 1
+    state: present
+    sysctl_set: yes
+
+- name: Enable ipv6 forwarding 1
+  sysctl:
+    name: net.ipv6.conf.default.forwarding
+    value: 1
+    state: present
+    sysctl_set: yes
+
+- name: Enable ipv6 forwarding 2
+  sysctl:
+    name: net.ipv6.conf.all.forwarding
+    value: 1
+    state: present
+    sysctl_set: yes
