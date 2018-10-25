@@ -27,7 +27,7 @@
       in_interface: "{{ wireless_ifname }}"
       jump: ACCEPT
 
-- name: Allow incoming connections to udp port 53 for DNS request
+- name: Allow incoming connections to UDP port 53 for DNS request
   iptables:
       chain: INPUT
       protocol: udp
@@ -35,7 +35,7 @@
       source: 10.1.1.0/24
       jump: ACCEPT
 
-- name: Allow incoming connections to tcp port 53 for DNS request
+- name: Allow incoming connections to TCP port 53 for DNS request
   iptables:
       chain: INPUT
       protocol: tcp

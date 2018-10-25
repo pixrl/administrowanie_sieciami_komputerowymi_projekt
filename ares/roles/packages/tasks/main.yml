@@ -23,6 +23,11 @@
       name: rfkill
       state: present
 
+- name: Install wireless-tools
+  apt:
+      name: wireless-tools
+      state: present
+
 - name: Install bridge-utils
   apt:
       name: bridge-utils

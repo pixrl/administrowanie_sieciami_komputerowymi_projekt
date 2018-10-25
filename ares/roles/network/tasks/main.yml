@@ -9,3 +9,9 @@
 
 - name: Make interface up
   shell: ip link set "{{ wireless_ifname }}" up
+
+- name: Kill wpa_supplicant
+  shell: if pgrep wpa_supplicant; then pkill wpa_supplicant; fi
+
+- name: Reset interface "{{ wireless_ifname }}"
+  shell: ifdown wlan0 && sudo ifup -v wlan0
