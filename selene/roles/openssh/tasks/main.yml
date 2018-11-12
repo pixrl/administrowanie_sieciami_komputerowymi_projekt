@@ -1,9 +1,10 @@
 - name: Generate /etc/ssh/ RSA host key
-  command : ssh-keygen -q -b 4096 -t rsa -f /etc/ssh/ssh_host_rsa_key -C "" -N ""
-  creates: /etc/ssh/ssh_host_rsa_key
+  command: ssh-keygen -q -b 4096 -t rsa -f /etc/ssh/ssh_host_rsa_key -C "" -N ""
+  args:
+    creates: /etc/ssh/ssh_host_rsa_key
 
 - name: Copy ssh keys to hades
-  shell: sshpass -p 'test1234' ssh-copy-id -i /etc/ssh/ssh_host_rsa_key.pub root@192.168.2.1
+  shell: sshpass -p test1234 ssh-copy-id -i /etc/ssh/ssh_host_rsa_key.pub root@192.168.2.1
 
-- name: Copy ssh keys to hades
-  shell: sshpass -p 'test1234' ssh-copy-id -i /etc/ssh/ssh_host_rsa_key.pub root@192.168.1.22
+- name: Copy ssh keys to zeus
+  shell: sshpass -p test1234 ssh-copy-id -i /etc/ssh/ssh_host_rsa_key.pub root@192.168.1.22

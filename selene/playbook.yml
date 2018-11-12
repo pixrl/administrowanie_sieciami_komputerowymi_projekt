@@ -2,8 +2,9 @@
 - hosts: selene
   remote_user: root
   connection: local
-  
+
   roles:
       - hostname
       - packages
       - openssh
+      - git

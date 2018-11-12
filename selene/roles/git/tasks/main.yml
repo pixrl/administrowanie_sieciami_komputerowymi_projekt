@@ -1,0 +1,6 @@
+- name: Clone project repository from github
+  git:
+      repo: 'https://github.com/pixrl/administrowanie_sieciami_komputerowymi_projekt'
+      dest: /root/github
+      clone: yes
+      update: yes

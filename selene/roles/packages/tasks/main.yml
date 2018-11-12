@@ -8,6 +8,11 @@
     name: openssh
     state: present
 
+- name: Install package git
+  pacman:
+    name: git
+    state: present
+
 - name: Install package sshpass
   pacman:
     name: sshpass
