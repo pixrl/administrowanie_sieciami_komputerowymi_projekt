@@ -1,0 +1,13 @@
+# The following lines are desirable for IPv4 capable hosts
+127.0.0.1	localhost
+
+# The following lines are desirable for IPv6 capable hosts
+::1		localhost
+ff00::0		ipv6-localnet
+ff00::0		ipv6-mcastprefix
+ff02::1		ipv6-allnodes
+ff02::2		ipv6-allrouters
+ff02::3		ipv6-allhosts
+
+# 127.0.1.1 is often used for the FQDN of the machine
+127.0.1.1	myhostname.localdomain	myhostname

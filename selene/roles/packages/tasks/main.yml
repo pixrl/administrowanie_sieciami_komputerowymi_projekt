@@ -1,0 +1,14 @@
+- name: Install package ansible
+  pacman:
+    name: ansible
+    state: present
+
+- name: Install package openssh
+  pacman:
+    name: openssh
+    state: present
+
+- name: Install package sshpass
+  pacman:
+    name: sshpass
+    state: present
