@@ -17,3 +17,8 @@
   pacman:
     name: sshpass
     state: present
+
+- name: Install package vim
+  pacman:
+    name: vim
+    state: present
