@@ -4,3 +4,4 @@
       dest: /root/github/administrowanie_sieciami_komputerowymi_projekt
       clone: yes
       update: yes
+      force: yes
