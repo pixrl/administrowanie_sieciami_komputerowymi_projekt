@@ -2,3 +2,8 @@
   yum:
       update_cache: yes
       update_only: yes
+
+- name: Install wget
+  yum:
+      name: wget
+      state: present
