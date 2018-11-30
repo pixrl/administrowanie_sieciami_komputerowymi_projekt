@@ -10,4 +10,4 @@
   shell: sshpass -p test1234 ssh-copy-id -i /root/.ssh/id_rsa.pub root@192.168.1.22
 
 - name: Copy ssh keys to helios
-  shell: sshpass -p test1234 ssh-copy-id -i /root/.ssh/id_rsa.pub root@192.168.2.11
+  shell: sshpass -p test1234 ssh-copy-id -i /root/.ssh/id_rsa.pub root@192.168.2.21
