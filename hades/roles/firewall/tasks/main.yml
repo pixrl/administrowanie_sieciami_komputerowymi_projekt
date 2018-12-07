@@ -61,3 +61,9 @@
       name: iptables
       state: restarted
       enabled: yes
+
+- name: Restart ip6tables service
+  service:
+      name: ip6tables
+      state: restarted
+      enabled: yes

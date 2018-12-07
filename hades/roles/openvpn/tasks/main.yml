@@ -6,20 +6,3 @@
 
 - name: Copy /usr/share/easy-rsa/vars
   copy: src=vars dest=/usr/share/easy-rsa/vars mode=0755
-
-- name: Execute the easyrsa init-pki
-  command: sh /usr/share/easy-rsa/easyrsa init-pki
-  args:
-      chdir: /usr/share/easy-rsa
-
-- name: Execute the easyrsa build-ca nopass
-  command: sh /usr/share/easy-rsa/easyrsa build-ca nopass
-  args:
-      chdir: /usr/share/easy-rsa
-      creates: /etc/openvpn/keys/ca.crt
-
-- name: Enable OpenVPN service
-  service:
-      name: openvpn
-      state: started
-      enabled: yes

@@ -1,0 +1,5 @@
+- name: Enable radvd service
+  service:
+      name: radvd
+      state: started
+      enabled: yes
