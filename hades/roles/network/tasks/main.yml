@@ -1,8 +1,11 @@
 - name: Copy interfaces file
-  copy: src=interfaces dest=/etc/network/interfaces mode=0755
+  copy: src=interfaces dest=/etc/network/interfaces mode=0700
 
-- name: Copy dhcpcd file
-  copy: src=dhcpcd.conf dest=/etc/dhcpcd.conf mode=0755
+- name: Copy dhcpd file
+  copy: src=dhcpd dest=/etc/conf.d/dhcpd mode=0700
+
+- name: Copy dhcpd.conf file
+  copy: src=dhcpd.conf dest=/etc/dhcp/dhcpd.conf mode=0700
 
 - name: Reboot the machine
   shell: sleep 2s && reboot
@@ -12,8 +15,8 @@
     timeout: 240
     delay: 20
 
-- name: Enable dhcpcd service
+- name: Enable dhcpd service
   service:
-      name: dhcpcd
+      name: dhcpd
       state: started
       enabled: yes

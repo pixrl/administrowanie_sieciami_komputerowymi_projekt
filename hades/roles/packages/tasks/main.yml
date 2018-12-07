@@ -32,11 +32,6 @@
       name: radvd
       state: present
 
-- name: Install Unbound DNS resolver
-  apk:
-      name: unbound
-      state: present
-
 - name: Install Haveged
   apk:
       name: haveged
