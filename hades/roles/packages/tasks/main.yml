@@ -17,16 +17,6 @@
       name: ip6tables
       state: present
 
-- name: Install dhcpcd
-  apk:
-      name: dhcpcd
-      state: present
-
-- name: Install dhcpcd-doc
-  apk:
-      name: dhcpcd-doc
-      state: present
-
 - name: Install radvd
   apk:
       name: radvd
