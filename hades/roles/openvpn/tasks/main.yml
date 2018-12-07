@@ -1,9 +1,3 @@
-- name: Enable OpenVPN service
-  service:
-      name: openvpn
-      state: started
-      enabled: yes
-
 - name: Copy /etc/openvpn/openvpn.conf
   copy: src=openvpn.conf dest=/etc/openvpn/openvpn.conf mode=0755
 
@@ -23,3 +17,9 @@
   args:
       chdir: /usr/share/easy-rsa
       creates: /etc/openvpn/keys/ca.crt
+
+- name: Enable OpenVPN service
+  service:
+      name: openvpn
+      state: started
+      enabled: yes
