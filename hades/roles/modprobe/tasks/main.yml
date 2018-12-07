@@ -3,5 +3,10 @@
       name: ipv6
       state: present
 
+- name: Add the tun module
+  modprobe:
+      name: tun
+      state: present
+
 - name: Copy /etc/modules
   copy: src=modules dest=/etc/modules mode=0700

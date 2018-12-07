@@ -32,6 +32,21 @@
       name: haveged
       state: present
 
+- name: Install OpenVPN
+  apk:
+      name: openvpn
+      state: present
+
+- name: Install easy-rsa
+  apk:
+      name: easy-rsa
+      state: present
+      
+- name: Install file
+  apk:
+      name: file
+      state: present
+
 - name: Enable haveged service
   service:
       name: haveged
