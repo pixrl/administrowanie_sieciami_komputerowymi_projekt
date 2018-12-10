@@ -1,6 +1,15 @@
 - name: Remove enp0s3 from public zone
   command: firewall-cmd --zone=public --remove-interface=enp0s3 --permanent
 
+- name: Remove enp0s8 from public zone
+  command: firewall-cmd --zone=public --remove-interface=enp0s8 --permanent
+
+- name: Remove enp0s9 from public zone
+  command: firewall-cmd --zone=public --remove-interface=enp0s9 --permanent
+
+- name: Remove enp0s10 from public zone
+  command: firewall-cmd --zone=public --remove-interface=enp0s10 --permanent
+
 - name: Change enp0s3 zone to external
   command: firewall-cmd --zone=external --change-interface=enp0s8 --permanent
 
@@ -10,11 +19,17 @@
 - name: Change enp0s9 zone to work
   command: firewall-cmd --zone=work --change-interface=enp0s9 --permanent
 
+- name: Change enp0s10 zone to home
+  command: firewall-cmd --zone=home --change-interface=enp0s10 --permanent
+
 - name: Add subnet 192.168.1.0 to DMZ zone
   command: firewall-cmd --zone=dmz --add-source=192.168.1.0/24 --permanent
 
 - name: Add subnet 192.168.2.0 to work zone
   command: firewall-cmd --zone=work --add-source=192.168.2.0/24 --permanent
+
+- name: Add subnet 192.168.3.0 to home zone
+  command: firewall-cmd --zone=home --add-source=192.168.3.0/24 --permanent
 
 - name: Allow DHCP in DMZ
   command: firewall-cmd --zone=dmz --add-service=dhcp --permanent

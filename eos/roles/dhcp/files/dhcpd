@@ -4,7 +4,7 @@
 # be aware that dhcpd listens *only* on interfaces for which it finds subnet
 # declaration in dhcpd.conf. It means that explicitly enumerating interfaces
 # also on command line should not be required in most cases.
-DHCPDARGS="enp0s8 enp0s9"
+DHCPDARGS="enp0s8 enp0s9 enp0s10"
 # If you still insist on adding some command line options,
 # copy dhcpd.service from /lib/systemd/system to /etc/systemd/system and modify
 # it there.

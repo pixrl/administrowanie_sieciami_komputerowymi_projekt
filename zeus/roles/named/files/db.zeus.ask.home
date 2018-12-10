@@ -15,4 +15,4 @@ $TTL 86400
 ns1.zeus.ask.home.      IN     A       192.168.1.22
 
 ; 192.168.1.0/24 - A records
-host1.ania.ask.home.    IN     A       192.168.1.21
+ania.zeus.ask.home.    IN     A       192.168.1.21
