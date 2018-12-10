@@ -11,3 +11,15 @@
 
 - name: Copy reverse zone config file
   copy: src=db.192.168.1 dest=/etc/named/zones/db.192.168.1 mode=0640
+
+- file:
+    path: /etc/named/zones/db.zeus.ask.home
+    owner: root
+    group: named
+    mode: 0644
+
+- file:
+    path: /etc/named/zones/db.192.168.1
+    owner: root
+    group: named
+    mode: 0644
