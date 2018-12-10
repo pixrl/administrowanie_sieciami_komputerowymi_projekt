@@ -1,0 +1,16 @@
+$TTL 86400
+@ IN SOA ns1.zeus.ask.home. root.zeus.ask.home. (
+             3           ; Serial
+             604800      ; Refresh
+             86400       ; Retry
+             2419200     ; Expire
+             604800      ; Negative Cache TTL
+       )
+       /etc/named/zones/db.10.128 — 2 of 3
+
+; name servers - NS records
+            IN     NS     ns1.zeus.ask.home.
+
+; PTR Records
+22          IN     PTR    ns1.zeus.ask.home.
+21          IN     PTR    host1.ania.ask.home.

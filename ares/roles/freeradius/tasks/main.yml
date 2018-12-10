@@ -1,0 +1,13 @@
+- name: Download DaloRADIUS package
+  get_url:
+    url: https://sourceforge.net/projects/daloradius/files/daloradius/daloradius0.9-9/daloradius-0.9-9.tar.gz
+    dest: /usr/src/daloradius-0.9-9.tar.gz
+    mode: 0644
+
+- name: Extract daloradius-0.9-9.tar.gz into /var/www/
+  unarchive:
+    src: /usr/src/daloradius-0.9-9.tar.gz
+    dest: /var/www/
+
+- name: Move daloradius-0.9-9.tar.gz to daloradius
+  command: mv /var/www/daloradius-0.9-9/ /var/www/daloradius

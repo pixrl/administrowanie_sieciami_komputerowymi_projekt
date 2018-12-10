@@ -11,3 +11,5 @@ ff02::3		ipv6-allhosts
 
 # 127.0.1.1 is often used for the FQDN of the machine
 127.0.1.1	myhostname.localdomain	myhostname
+
+192.168.1.22     ns1.zeus.ask.home     zeus

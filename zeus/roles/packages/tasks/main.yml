@@ -8,3 +8,13 @@
   yum:
       name: bind
       state: present
+
+- name: Install bind-utils
+  yum:
+      name: bind-utils
+      state: present
+
+- name: Install vim
+  yum:
+      name: vim
+      state: present
