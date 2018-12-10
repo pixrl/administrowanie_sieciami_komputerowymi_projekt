@@ -1,53 +1,41 @@
-- name: Allows MASQUERADE
-  firewalld:
-      masquerade: yes
-      state: enabled
-      permanent: yes
-      zone: dmz
+- name: Remove enp0s3 from public zone
+  command: firewall-cmd --zone=public --remove-interface=enp0s3 --permanent
 
-- name: Allows MASQUERADE
-  firewalld:
-      masquerade: yes
-      state: enabled
-      permanent: yes
-      zone: work
-
-- name: Add subnet 192.168.1.0 to DMZ zone
-  firewalld:
-      source: 192.168.1.0/24
-      zone: dmz
-      state: enabled
-
-- name: Add subnet 192.168.2.0 to DMZ zone
-  firewalld:
-      source: 192.168.2.0/24
-      zone: work
-      state: enabled
-
-- name: Allow DHCP
-  firewalld:
-      service: dhcp
-      permanent: yes
-      state: enabled
-      immediate: yes
-
-- name: Change enp0s3 zone to public
-  firewalld:
-      zone: public
-      interface: enp0s3
-      permanent: yes
-      state: enabled
+- name: Change enp0s3 zone to external
+  command: firewall-cmd --zone=external --change-interface=enp0s8 --permanent
 
 - name: Change enp0s8 zone to dmz
-  firewalld:
-      zone: dmz
-      interface: enp0s8
-      permanent: yes
-      state: enabled
+  command: firewall-cmd --zone=dmz --change-interface=enp0s8 --permanent
 
 - name: Change enp0s9 zone to work
-  firewalld:
-      zone: work
-      interface: enp0s9
-      permanent: yes
-      state: enabled
+  command: firewall-cmd --zone=work --change-interface=enp0s9 --permanent
+
+- name: Add subnet 192.168.1.0 to DMZ zone
+  command: firewall-cmd --zone=dmz --add-source=192.168.1.0/24 --permanent
+
+- name: Add subnet 192.168.2.0 to work zone
+  command: firewall-cmd --zone=work --add-source=192.168.2.0/24 --permanent
+
+- name: Allow DHCP in DMZ
+  command: firewall-cmd --zone=dmz --add-service=dhcp --permanent
+
+- name: Allow DNS in DMZ
+  command: firewall-cmd --zone=dmz --add-service=dns --permanent
+
+- name: Allow FTP in DMZ
+  command: firewall-cmd --zone=dmz --add-service=ftp --permanent
+
+- name: Allow HTTP in DMZ
+  command: firewall-cmd --zone=dmz --add-service=http --permanent
+
+- name: Allow DHCP in work
+  command: firewall-cmd --zone=work --add-service=dhcp --permanent
+
+- name: Forward packets from external port 80 to web server
+  command: firewall-cmd --zone=external --add-forward-port=port=80:proto=tcp:toport=80:toaddr=192.168.1.21 --permanent
+
+- name: Forward packets from external port 443 to web server
+  command: firewall-cmd --zone=external --add-forward-port=port=443:proto=tcp:toport=443:toaddr=192.168.1.21 --permanent
+
+- name: Reload firewall
+  command: firewall-cmd --reload
