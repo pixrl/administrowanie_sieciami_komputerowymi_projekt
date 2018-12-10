@@ -1,8 +1,0 @@
----
-- hosts: helios
-  remote_user: root
-
-  roles:
-      - hostname
-      - packages
-      - ipsec

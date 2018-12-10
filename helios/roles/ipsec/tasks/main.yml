@@ -1,4 +1,0 @@
-- name: Setup ipsec vpn
-  shell: wget https://git.io/vpnsetup-centos -O vpnsetup-centos.sh && sudo sh vpnsetup-centos.sh >> vpnsetup.log
-  args:
-      creates: /etc/ipsec.conf

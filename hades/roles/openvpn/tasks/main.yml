@@ -1,8 +1,0 @@
-- name: Copy /etc/openvpn/openvpn.conf
-  copy: src=openvpn.conf dest=/etc/openvpn/openvpn.conf mode=0755
-
-- name: Create directory for keys
-  file: path=/etc/openvpn/keys state=directory
-
-- name: Copy /usr/share/easy-rsa/vars
-  copy: src=vars dest=/usr/share/easy-rsa/vars mode=0755

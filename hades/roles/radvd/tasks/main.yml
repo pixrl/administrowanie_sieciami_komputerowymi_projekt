@@ -1,8 +1,0 @@
-- name: Copy radvd file
-  copy: src=radvd.conf dest=/etc/radvd.conf mode=0755
-
-- name: Enable radvd service
-  service:
-      name: radvd
-      state: started
-      enabled: yes

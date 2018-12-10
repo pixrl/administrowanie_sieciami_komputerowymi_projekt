@@ -1,2 +1,0 @@
-- name: Copy sysctl config
-  copy: src=local.conf dest=/etc/sysctl.d/local.conf mode=0700
