@@ -1,0 +1,53 @@
+- name: Allows MASQUERADE
+  firewalld:
+      masquerade: yes
+      state: enabled
+      permanent: yes
+      zone: dmz
+
+- name: Allows MASQUERADE
+  firewalld:
+      masquerade: yes
+      state: enabled
+      permanent: yes
+      zone: work
+
+- name: Add subnet 192.168.1.0 to DMZ zone
+  firewalld:
+      source: 192.168.1.0/24
+      zone: dmz
+      state: enabled
+
+- name: Add subnet 192.168.2.0 to DMZ zone
+  firewalld:
+      source: 192.168.2.0/24
+      zone: work
+      state: enabled
+
+- name: Allow DHCP
+  firewalld:
+      service: dhcp
+      permanent: yes
+      state: enabled
+      immediate: yes
+
+- name: Change enp0s3 zone to public
+  firewalld:
+      zone: public
+      interface: enp0s3
+      permanent: yes
+      state: enabled
+
+- name: Change enp0s8 zone to dmz
+  firewalld:
+      zone: dmz
+      interface: enp0s8
+      permanent: yes
+      state: enabled
+
+- name: Change enp0s9 zone to work
+  firewalld:
+      zone: work
+      interface: enp0s9
+      permanent: yes
+      state: enabled

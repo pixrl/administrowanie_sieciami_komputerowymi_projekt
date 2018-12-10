@@ -1,0 +1,8 @@
+- name: Copy sysctl config
+  copy: src=sysctl.conf dest=/etc/sysctl.conf mode=0644
+
+- name: Set ip forwarding on in /proc and do not reload the sysctl file
+  sysctl:
+      name: net.ipv4.ip_forward
+      value: 1
+      sysctl_set: yes

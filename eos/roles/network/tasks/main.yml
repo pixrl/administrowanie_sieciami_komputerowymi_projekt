@@ -1,0 +1,5 @@
+- name: Copy ifcfg-enp0s8 file
+  copy: src=ifcfg-enp0s8 dest=/etc/sysconfig/network-scripts/ifcfg-enp0s8 mode=0644
+
+- name: Copy ifcfg-enp0s9 file
+  copy: src=ifcfg-enp0s9 dest=/etc/sysconfig/network-scripts/ifcfg-enp0s9 mode=0644

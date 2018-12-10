@@ -1,6 +1,6 @@
 - name: Open DNS port
   firewalld:
       service: dns
-      permanent: true
+      permanent: yes
       state: enabled
       immediate: yes

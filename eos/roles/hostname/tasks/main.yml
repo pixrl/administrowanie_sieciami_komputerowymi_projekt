@@ -1,0 +1,13 @@
+- name: Change hostname
+  hostname:
+          name: "{{ my_hostname }}"
+
+- name: Copy hosts file
+  copy: src=hosts dest=/etc/hosts mode=0644
+
+- name: Add hostname to /etc/hosts
+  replace:
+          path: /etc/hosts
+          regexp: '()myhostname?()'
+          replace: '\1{{ my_hostname }}\2'
+          backup: yes

@@ -1,0 +1,13 @@
+---
+- hosts: eos
+  remote_user: root
+
+  roles:
+      - hostname
+      - systemd
+      - packages
+      - chrony
+      - firewalld
+      - sysctl
+      - network
+      - dhcp

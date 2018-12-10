@@ -1,0 +1,23 @@
+- name: Install dhcp
+  yum:
+      name: dhcp
+      state: present
+
+- name: Copy dhcpd file
+  copy: src=dhcpd dest=/etc/sysconfig/dhcpd mode=644
+
+- name: Copy dhcpd.conf file
+  copy: src=dhcpd.conf dest=/etc/dhcp/dhcpd.conf mode=0644
+
+- name: Copy dhcpd6.conf file
+  copy: src=dhcpd6.conf dest=/etc/dhcp/dhcpd6.conf mode=0644
+
+- name: Copy dhcpd.service file
+  copy: src=dhcpd.service dest=/etc/systemd/system/dhcpd.service mode=644
+
+- name: Restart service dhcpd and reload units
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    enabled: yes
+    name: dhcpd
