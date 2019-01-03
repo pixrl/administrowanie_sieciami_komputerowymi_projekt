@@ -3,7 +3,7 @@
   args:
     creates: /root/.ssh/id_rsa
 
-- name: Copy ssh keys to hades
+- name: Copy ssh keys to eos
   shell: sshpass -p test1234 ssh-copy-id -i /root/.ssh/id_rsa.pub root@192.168.2.1
 
 - name: Copy ssh keys to zeus

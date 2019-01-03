@@ -2,8 +2,40 @@
   yum:
       update_cache: yes
       update_only: yes
+      state: latest
 
 - name: Install wget
   yum:
       name: wget
+      state: present
+
+- name: Add Wireguard repository
+  get_url:
+    url: https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
+    dest: /etc/yum.repos.d/wireguard.repo
+    mode: 0664
+
+- name: Install epel-release
+  yum:
+      name: epel-release
+      state: present
+
+- name: Install wireguard-dkms
+  yum:
+      name: wireguard-dkms
+      state: present
+
+- name: Install wireguard-tools
+  yum:
+      name: wireguard-tools
+      state: present
+
+- name: Install SNMP
+  yum:
+      name: net-snmp
+      state: present
+
+- name: Install SNMP utils
+  yum:
+      name: net-snmp-utils
       state: present

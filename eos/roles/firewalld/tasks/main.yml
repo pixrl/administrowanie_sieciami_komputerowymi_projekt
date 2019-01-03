@@ -46,6 +46,9 @@
 - name: Allow DHCP in work
   command: firewall-cmd --zone=work --add-service=dhcp --permanent
 
+- name: Allow Wireguard VPN service on port 51820
+  command: firewall-cmd --zone=external --add-port=51820/udp --permanent
+
 - name: Forward packets from external port 80 to web server
   command: firewall-cmd --zone=external --add-forward-port=port=80:proto=tcp:toport=80:toaddr=192.168.1.21 --permanent
 

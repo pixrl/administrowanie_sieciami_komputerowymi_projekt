@@ -1,0 +1,14 @@
+- name: Creates wireguard directory in /etc
+  file:
+    path: /etc/wireguard
+    state: directory
+    mode: 0700
+
+- name: Copy Wireguard server config file
+  copy: src=wg0.conf dest=/etc/wireguard/wg0.conf mode=0644
+
+- name: Reload Wireguard service
+  systemd:
+      state: started
+      enabled: yes
+      name: wg-quick@wg0.service
